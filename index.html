@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎬 Movie & TV Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body class="bg-[#0f172a] text-[#e2e8f0]">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#1e293b] shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-3xl">🎬</span>
+          <h1 class="text-2xl font-bold text-[#f59e0b]">Movie & TV Explorer</h1>
+        </div>
+        <nav class="hidden md:flex gap-6">
+          <a href="#" class="hover:text-[#f59e0b] transition-colors">Inicio</a>
+          <a href="#" class="hover:text-[#f59e0b] transition-colors">Películas</a>
+          <a href="#" class="hover:text-[#f59e0b] transition-colors">Series</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen">
+      <!-- Hero Section -->
+      <section class="bg-[#1e293b] py-12 sm:py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-4 text-center">
+            Explora películas y series
+          </h2>
+          <p class="text-center text-[#94a3b8] text-lg mb-8">
+            Descubre las últimas películas y series de televisión
+          </p>
+
+          <!-- Search Bar -->
+          <div id="search-container" class="flex justify-center"></div>
+        </div>
+      </section>
+
+      <!-- Movie Grid -->
+      <section class="py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div id="movie-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Movies will be loaded here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1e293b] py-8 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-[#94a3b8]">
+        <p>&copy; 2024 Movie & TV Explorer. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/scripts/main.js"></script>
+  </body>
+</html>
