@@ -7,7 +7,7 @@ yarn.lock
 *.md
 
 # Build output
-dist/
+# dist/  (Incluido para GitHub Pages deployment)
 build/
 
 # IDE
