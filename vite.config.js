@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/finalProject/',
+  base: '/finalProjectWDD330/',
   server: {
     port: 3000,
     open: true,
