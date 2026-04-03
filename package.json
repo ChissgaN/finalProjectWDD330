@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint src --ext .js",
     "lint:fix": "eslint src --ext .js --fix",
-    "format": "prettier --write \"src/**/*.{js,html,css}\""
+    "format": "prettier --write \"src/**/*.{js,html,css}\"",
+    "deploy": "npm run build && git add dist -f && git commit -m 'Deploy with GitHub Pages' && git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [
     "movies",
@@ -20,7 +21,6 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.17",
@@ -29,6 +29,7 @@
     "postcss": "^8.4.33",
     "prettier": "^3.1.1",
     "tailwindcss": "^3.4.1",
+    "terser": "^5.46.1",
     "vite": "^5.0.8"
   }
 }
