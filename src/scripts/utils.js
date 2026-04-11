@@ -1,14 +1,4 @@
-/**
- * Utility Functions
- * Helper functions for the application
- */
-
-/**
- * Debounce function to limit function calls
- * @param {Function} func - Function to debounce
- * @param {number} delay - Delay in milliseconds
- * @returns {Function} Debounced function
- */
+// Utility functions
 export const debounce = (func, delay = 300) => {
   let timeoutId;
   return (...args) => {
@@ -17,42 +7,27 @@ export const debounce = (func, delay = 300) => {
   };
 };
 
-/**
- * Format date string
- * @param {string} dateString - Date string to format
- * @returns {string} Formatted date
- */
+
 export const formatDate = (dateString) => {
-  if (!dateString) return 'Fecha desconocida';
+  if (!dateString) return 'Unknown date';
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString('es-ES', options);
+  return new Date(dateString).toLocaleDateString('en-US', options);
 };
 
-/**
- * Truncate text to a specific length
- * @param {string} text - Text to truncate
- * @param {number} length - Maximum length
- * @returns {string} Truncated text
- */
+
 export const truncateText = (text, length = 100) => {
   if (!text) return '';
   return text.length > length ? text.substring(0, length) + '...' : text;
 };
 
-/**
- * Clear container element
- * @param {HTMLElement} element - Element to clear
- */
+
 export const clearElement = (element) => {
   if (element) {
     element.innerHTML = '';
   }
 };
 
-/**
- * Show loading state
- * @param {HTMLElement} element - Element to show loading state in
- */
+
 export const showLoading = (element) => {
   element.innerHTML = `
     <div class="flex justify-center items-center py-12">
@@ -61,11 +36,7 @@ export const showLoading = (element) => {
   `;
 };
 
-/**
- * Show error message
- * @param {HTMLElement} element - Element to show error in
- * @param {string} message - Error message
- */
+
 export const showError = (element, message) => {
   element.innerHTML = `
     <div class="text-center py-12">

@@ -1,3 +1,7 @@
+import { MovieDetailsModal } from './MovieDetailsModal.js';
+import { showTrailerPlayer } from '../pages/details.js';
+
+// Movie card component
 export const MovieCard = (movie) => {
   const posterPath = movie.poster_path
     ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
@@ -25,17 +29,22 @@ export const MovieCard = (movie) => {
         ${movie.title || movie.name}
       </h3>
       <p class="text-sm text-[#94a3b8] mb-3 line-clamp-3">
-        ${movie.overview || 'Sin descripción disponible'}
+        ${movie.overview || 'No description available'}
       </p>
       <p class="text-xs text-[#94a3b8]">
-        ${movie.release_date || movie.first_air_date || 'Fecha desconocida'}
+        ${movie.release_date || movie.first_air_date || 'Unknown date'}
       </p>
     </div>
   `;
 
   card.addEventListener('click', () => {
-    console.log('Movie selected:', movie);
-    // aquí puedes agregar navegación a página de detalles
+    const handleWatchTrailer = () => {
+      modal.remove();
+      showTrailerPlayer(movie);
+    };
+
+    const modal = MovieDetailsModal(movie, () => modal.remove(), handleWatchTrailer);
+    document.body.appendChild(modal);
   });
 
   return card;

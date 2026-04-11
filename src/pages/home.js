@@ -6,18 +6,13 @@ import { clearElement, showLoading, showError } from '../scripts/utils.js';
 const movieGrid = document.getElementById('movie-grid');
 const searchContainer = document.getElementById('search-container');
 
-/**
- * Render movies to the grid
- * @param {Array} movies - Array of movie objects
- */
+// Render movies to grid
 const renderMovies = (movies) => {
   clearElement(movieGrid);
-  
   if (movies.length === 0) {
-    showError(movieGrid, 'No se encontraron películas o series.');
+    showError(movieGrid, 'No movies or shows found.');
     return;
   }
-
   movies.forEach((movie) => {
     if (movie.poster_path) {
       const card = MovieCard(movie);
@@ -26,44 +21,31 @@ const renderMovies = (movies) => {
   });
 };
 
-/**
- * Handle search functionality
- * @param {string} query - Search query
- */
+// Handle search query
 const handleSearch = async (query) => {
   showLoading(movieGrid);
   try {
     const data = await searchMovies(query);
     renderMovies(data.results);
   } catch (error) {
-    showError(movieGrid, 'Error al buscar. Intenta de nuevo.');
-    console.error('Search error:', error);
+    showError(movieGrid, 'Error searching. Please try again.');
   }
 };
 
-/**
- * Load initial popular movies
- */
+// Load initial popular movies
 const loadInitialMovies = async () => {
   showLoading(movieGrid);
   try {
     const data = await getPopularMovies();
     renderMovies(data.results);
   } catch (error) {
-    showError(movieGrid, 'Error al cargar películas. Intenta más tarde.');
-    console.error('Load error:', error);
+    showError(movieGrid, 'Error loading movies. Please try again later.');
   }
 };
 
-/**
- * Initialize home page
- */
 export const initHome = () => {
-  // Render search bar
   const searchBar = SearchBar(handleSearch);
   clearElement(searchContainer);
   searchContainer.appendChild(searchBar);
-
-  // Load initial movies
   loadInitialMovies();
 };
