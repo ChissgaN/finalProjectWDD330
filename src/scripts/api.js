@@ -1,5 +1,5 @@
 // API requests to TMDB
-import { TMDB_CONFIG } from './config.js';
+import { TMDB_CONFIG, YOUTUBE_CONFIG } from './config.js';
 
 const API_BASE_URL = TMDB_CONFIG.BASE_URL;
 const API_KEY = TMDB_CONFIG.API_KEY;
@@ -77,7 +77,7 @@ export const getMovieTrailers = async (movieId) => {
 // Search trailers on YouTube
 export const searchYouTubeTrailer = async (query) => {
   try {
-    const YOUTUBE_API_KEY = 'AIzaSyByWwysrbEN710XT-xKc5VkHN0u24DGFVo';
+    const YOUTUBE_API_KEY = YOUTUBE_CONFIG.API_KEY;
     const searchQuery = `${query} official trailer`;
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchQuery)}&type=video&maxResults=1&key=${YOUTUBE_API_KEY}`

@@ -1,6 +1,6 @@
-// TMDB API Configuration
+// TMDB API Configuration loaded from .env
 export const TMDB_CONFIG = {
-  API_KEY: '8e39761e01d4f72ab6ee50507f2346ce',
+  API_KEY: import.meta.env.VITE_TMDB_API_KEY,
   BASE_URL: 'https://api.themoviedb.org/3',
   IMAGE_BASE_URL: 'https://image.tmdb.org/t/p',
   posterSizes: {
@@ -10,9 +10,9 @@ export const TMDB_CONFIG = {
   },
 };
 
-// YouTube API Configuration
+// YouTube API Configuration loaded from .env
 export const YOUTUBE_CONFIG = {
-  API_KEY: 'AIzaSyByWwysrbEN710XT-xKc5VkHN0u24DGFVo',
+  API_KEY: import.meta.env.VITE_YOUTUBE_API_KEY,
   BASE_URL: 'https://www.googleapis.com/youtube/v3',
 };
 
