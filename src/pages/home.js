@@ -2,6 +2,7 @@ import { getPopularMovies, searchMovies } from '../scripts/api.js';
 import { MovieCard } from '../components/MovieCard.js';
 import { SearchBar } from '../components/SearchBar.js';
 import { clearElement, showLoading, showError } from '../scripts/utils.js';
+import { showSearchResults } from './search.js';
 
 const movieGrid = document.getElementById('movie-grid');
 const searchContainer = document.getElementById('search-container');
@@ -26,7 +27,9 @@ const handleSearch = async (query) => {
   showLoading(movieGrid);
   try {
     const data = await searchMovies(query);
-    renderMovies(data.results);
+    // Filter valid results with poster
+    const validResults = data.results.filter((movie) => movie.poster_path);
+    showSearchResults(query, validResults);
   } catch (error) {
     showError(movieGrid, 'Error searching. Please try again.');
   }
